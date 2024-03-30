@@ -5,16 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Calendar Events</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .card {
-            height: 200%; /* Double the default height */
-        }
-
-        .card-body {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
@@ -27,27 +18,28 @@
                     <a href="https://discord.gg/p3udqffKE6" target="_blank" class="btn btn-outline-primary custom-outline-primary btn-block">Discord</a>
                 </div>
                 <div class="col-12 col-sm-4">
-                    <a href="https://tabletophobos.com/schedule" class="btn btn-outline-primary custom-outline-primary btn-block">Schedule</a>
+                    <a href="https://tabletophobos.com" class="btn btn-outline-primary custom-outline-primary btn-block">Home</a>
                 </div>
             </div>
         </div>
     </nav>
     <div class="container">
-        <h1 class="my-4">Upcoming Events</h1>
-        
+        <h1 class="my-4">Upcoming Events</h1>  
         <div class="container my-4">
             <div class="row">
+                <!-- Use Bootstrap grid classes to create three columns -->
                 <div class="col-md-4 mb-4">
-                    <div id="eventsList" class="row"></div>
-
+                    <div id="eventsList1" class="row"></div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div id="eventsList2" class="row"></div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div id="eventsList3" class="row"></div>
                 </div>
             </div>
         </div>
-
-
-
     </div>
-    
     <script src="schedule.js"></script>
 </body>
 </html>

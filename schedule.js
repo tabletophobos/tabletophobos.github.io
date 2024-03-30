@@ -98,8 +98,14 @@ async function fetchEvents() {
         allEvents.sort((a, b) => new Date(a.start.dateTime) - new Date(b.start.dateTime));
 
         // Display sorted events
-        const eventsList = document.getElementById('eventsList');
-        eventsList.innerHTML = ''; // Clear previous events
+        const eventsList1 = document.getElementById('eventsList1');
+        eventsList1.innerHTML = ''; // Clear previous events
+        const eventsList2 = document.getElementById('eventsList2');
+        eventsList2.innerHTML = ''; // Clear previous events
+        const eventsList3 = document.getElementById('eventsList3');
+        eventsList3.innerHTML = ''; // Clear previous events
+
+        let columnIndex = 1;
         allEvents.forEach(event => {
             const startDate = new Date(event.start.dateTime);
             const organizer = event.organizer ? event.organizer.displayName : 'Unknown';
@@ -110,17 +116,39 @@ async function fetchEvents() {
             if (daysDifference > -2){
                 const card = document.createElement('div');
                 card.classList.add('card', 'mb-3');
+                if (organizer=='Hobos Games'){
+                    imageUrl = 'img\\hobo.webp'
+                } else {
+                    imageUrl = 'img\\real.webp'
+                }
                 card.innerHTML = `
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <img src="${imageUrl}" class="card-img-top rounded-circle" style="width: 50%;" alt="Event Image">
+                        
                         <p class="card-text">Organizer: ${organizer}</p>
                         <p class="card-text">Start Date: ${startDate}</p>
                         <p class="card-text">${description}</p>
                     </div>
                 `;
-                eventsList.appendChild(card);
-            }
-            
-                
+                //eventsList.appendChild(card);
+
+                switch(columnIndex) {
+                    case 1:
+                        eventsList1.appendChild(card);
+                        columnIndex = 2;
+                      break;
+                    case 2:
+                        eventsList2.appendChild(card);
+                        columnIndex = 3;
+                      break;
+                    case 3:
+                        eventsList3.appendChild(card);
+                        columnIndex = 1;
+                      break;
+                }
+
+
+            }      
             
         });
     } catch (error) {
@@ -130,3 +158,7 @@ async function fetchEvents() {
 
 // Call fetchEvents function when the page loads
 window.onload = fetchEvents;
+
+
+
+

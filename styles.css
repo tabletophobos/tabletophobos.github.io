@@ -12,3 +12,27 @@
     height: 50px; /* Adjust this value as needed */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white); /* Adjust the gradient colors as needed */
 }
+
+.card {
+    height: 400px; /* Set a fixed height for all cards */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.card-body {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card {
+
+padding: 20px; /* Add padding to the card content */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to give a raised appearance */
+border-radius: 8px; /* Add rounded corners for a softer look */
+transition: box-shadow 0.3s ease; /* Add transition effect for hover */
+margin-bottom: 20px; /* Add margin to create space between cards */
+margin-right: 20px; /* Add margin to separate cards horizontally */
+}
+
+.card:hover {
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow size on hover for an interactive effect */
+}
